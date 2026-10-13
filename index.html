@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spectrums | Quantitative Stock Screener & Research Terminal</title>
+  <title>SPECTRUMS | Acoustic Science & Audio Engineering Suite</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -11,17 +11,21 @@
       theme: {
         extend: {
           colors: {
-            brand: {
-              50: '#f0fdf4',
-              500: '#10b981',
-              600: '#059669',
-              accent: '#38bdf8'
+            acoustic: {
+              50: '#faf5ff',
+              400: '#c084fc',
+              500: '#a855f7',
+              600: '#9333ea',
+              cyan: '#06b6d4',
+              gold: '#fbbf24',
+              teal: '#14b8a6'
             },
-            dark: {
-              900: '#090d16',
-              850: '#0f172a',
-              800: '#1e293b',
-              700: '#334155'
+            studio: {
+              950: '#07090e',
+              900: '#0c0f17',
+              850: '#121724',
+              800: '#1b2336',
+              700: '#26314c'
             }
           }
         }
@@ -30,251 +34,423 @@
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
     body {
       font-family: 'Inter', sans-serif;
     }
     .mono {
       font-family: 'JetBrains Mono', monospace;
     }
-    .glass-card {
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(12px);
+    .glass-panel {
+      background: rgba(18, 23, 36, 0.78);
+      backdrop-filter: blur(14px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .glow-accent {
-      box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.25);
+    .glow-violet {
+      box-shadow: 0 0 35px -5px rgba(168, 85, 247, 0.2);
+    }
+    .glow-cyan {
+      box-shadow: 0 0 30px -5px rgba(6, 182, 212, 0.2);
+    }
+    input[type=range] {
+      accent-color: #a855f7;
     }
   </style>
 </head>
-<body class="bg-dark-900 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-studio-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-acoustic-500 selection:text-white">
 
-  <!-- TOP TRADINGVIEW TICKER TAPE WIDGET -->
-  <div class="border-b border-dark-800 bg-black/40">
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-      {
-        "symbols": [
-          { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
-          { "proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100" },
-          { "proName": "INDEX:DXY", "title": "US Dollar Index" },
-          { "description": "Apple", "proName": "NASDAQ:AAPL" },
-          { "description": "Nvidia", "proName": "NASDAQ:NVDA" },
-          { "description": "Tesla", "proName": "NASDAQ:TSLA" },
-          { "description": "Bitcoin", "proName": "BINANCE:BTCUSDT" }
-        ],
-        "showSymbolLogo": true,
-        "isTransparent": true,
-        "displayMode": "adaptive",
-        "colorTheme": "dark",
-        "locale": "en"
-      }
-      </script>
-    </div>
-  </div>
-
-  <!-- NAVIGATION HEADER -->
-  <header class="border-b border-dark-800 bg-dark-850/80 sticky top-0 z-50 backdrop-blur-md">
+  <!-- TOP HEADER -->
+  <header class="border-b border-studio-800 bg-studio-900/90 sticky top-0 z-50 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- LOGO -->
       <div class="flex items-center space-x-3">
-        <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-cyan-500 to-emerald-500 flex items-center justify-center text-dark-900 font-bold shadow-lg shadow-cyan-500/20">
-          <i class="fa-solid fa-chart-line text-lg text-white"></i>
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-violet-600 via-indigo-600 to-cyan-400 flex items-center justify-center text-white shadow-lg shadow-violet-500/25">
+          <i class="fa-solid fa-wave-square text-lg"></i>
         </div>
         <div>
           <div class="flex items-center space-x-2">
-            <span class="font-bold text-lg tracking-wider text-white mono">SPECTRUMS</span>
-            <span class="px-2 py-0.5 text-xs font-semibold rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 mono">
-              RESEARCH TERMINAL
+            <span class="font-extrabold text-xl tracking-wider text-white mono">SPECTRUMS</span>
+            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-violet-500/20 text-violet-300 border border-violet-500/30 mono uppercase">
+              Acoustic Suite
             </span>
           </div>
-          <p class="text-xs text-slate-400 hidden sm:block">Systematic Stock Screener & Quantitative Market Findings</p>
+          <p class="text-[11px] text-slate-400 hidden sm:block">Audio Frequency Science • Room Acoustics • Psychoacoustics</p>
         </div>
       </div>
 
-      <!-- STATUS & REFRESH -->
-      <div class="flex items-center space-x-4 text-xs">
-        <div class="flex items-center space-x-2 bg-dark-800 px-3 py-1.5 rounded-full border border-dark-700">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span class="text-slate-300 mono" id="lastUpdated">Updated Today</span>
+      <!-- NAV BUTTONS -->
+      <div class="flex items-center space-x-4 text-xs font-medium">
+        <a href="#generator" class="text-slate-400 hover:text-violet-400 transition hidden sm:inline">Tone Generator</a>
+        <a href="#spectrum" class="text-slate-400 hover:text-violet-400 transition hidden sm:inline">Frequency Map</a>
+        <a href="#room-modes" class="text-slate-400 hover:text-violet-400 transition hidden md:inline">Room Modes</a>
+        <a href="#treatment" class="text-slate-400 hover:text-violet-400 transition hidden md:inline">Treatment</a>
+
+        <!-- AUDIO ENGINE STATUS INDICATOR -->
+        <div class="flex items-center space-x-2 bg-studio-850 px-3 py-1.5 rounded-full border border-studio-700">
+          <span class="w-2 h-2 rounded-full bg-slate-500" id="audioStatusDot"></span>
+          <span class="text-slate-300 mono text-[11px]" id="audioStatusText">Engine Ready</span>
         </div>
-        <a href="#findings" class="text-slate-400 hover:text-cyan-400 transition hidden md:inline">Findings</a>
-        <a href="#screener" class="text-slate-400 hover:text-cyan-400 transition hidden md:inline">Screener</a>
-        <a href="#chart-section" class="text-slate-400 hover:text-cyan-400 transition hidden md:inline">Terminal</a>
       </div>
+
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 flex-1 w-full">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10 flex-1 w-full">
 
-    <!-- HERO / BANNER -->
-    <div class="glass-card rounded-2xl p-6 sm:p-8 relative overflow-hidden glow-accent border border-slate-800">
-      <div class="absolute -right-16 -top-16 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-      
+    <!-- HERO SECTION -->
+    <div class="glass-panel rounded-2xl p-6 sm:p-8 relative overflow-hidden glow-violet border border-studio-800">
+      <div class="absolute -right-16 -top-16 w-80 h-80 bg-violet-600/15 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-16 -bottom-16 w-80 h-80 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
       <div class="relative z-10 max-w-3xl space-y-3">
-        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs bg-slate-800/80 text-cyan-300 border border-slate-700 mono">
-          <i class="fa-solid fa-bolt text-emerald-400"></i>
-          <span>Real-Time Market Intelligence & Execution Setups</span>
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs bg-studio-850 text-violet-300 border border-studio-700 mono">
+          <i class="fa-solid fa-headphones-simple text-cyan-400"></i>
+          <span>Precision Web Audio • 20 Hz to 20,000 Hz Physical Acoustic Domain</span>
         </div>
         <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-          Systematic Market Screeners & Asymmetric Setups
+          Acoustic Engineering, Frequency Physics & Room Analysis
         </h1>
         <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-          High-probability setups filtered by volume expansion, relative strength, and structural momentum. Click any ticker in the screener to load live multi-timeframe analytics in the terminal below.
+          Explore the full spectrum of audible sound. Calibrate listening environments, calculate room resonance modes, sweep acoustic frequencies, and reference psychoacoustic mixing principles.
         </p>
-      </div>
-    </div>
 
-    <!-- STATS OVERVIEW CARDS -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-      <div class="glass-card rounded-xl p-4 border border-slate-800">
-        <div class="text-xs text-slate-400 mono">ACTIVE SETUPS</div>
-        <div class="text-2xl font-bold text-white mt-1 mono" id="statActive">6</div>
-        <div class="text-xs text-emerald-400 mt-1 flex items-center">
-          <i class="fa-solid fa-arrow-trend-up mr-1"></i> 4 Long Bias
+        <!-- QUICK PRESETS -->
+        <div class="pt-2 flex flex-wrap gap-2 text-xs mono">
+          <span class="text-slate-400 py-1 flex items-center mr-1">Quick Presets:</span>
+          <button onclick="quickPlayPreset(50, 'Sub-Bass')" class="px-2.5 py-1 rounded-lg bg-studio-800 hover:bg-violet-600/80 text-slate-200 border border-studio-700 transition">50 Hz Sub</button>
+          <button onclick="quickPlayPreset(1000, 'Mid-Reference')" class="px-2.5 py-1 rounded-lg bg-studio-800 hover:bg-violet-600/80 text-slate-200 border border-studio-700 transition">1 kHz Ref</button>
+          <button onclick="quickPlayPreset(10000, 'Brilliance')" class="px-2.5 py-1 rounded-lg bg-studio-800 hover:bg-violet-600/80 text-slate-200 border border-studio-700 transition">10 kHz Air</button>
+          <button onclick="playNoise('pink')" class="px-2.5 py-1 rounded-lg bg-studio-800 hover:bg-cyan-600/80 text-slate-200 border border-studio-700 transition">Pink Noise</button>
+          <button onclick="startFrequencySweep()" class="px-2.5 py-1 rounded-lg bg-gradient-to-r from-violet-600 to-cyan-600 text-white font-semibold transition hover:opacity-90">20-20k Sweep</button>
         </div>
       </div>
-      <div class="glass-card rounded-xl p-4 border border-slate-800">
-        <div class="text-xs text-slate-400 mono">AVG RISK/REWARD</div>
-        <div class="text-2xl font-bold text-white mt-1 mono">3.2 : 1</div>
-        <div class="text-xs text-slate-400 mt-1">Controlled Asymmetry</div>
-      </div>
-      <div class="glass-card rounded-xl p-4 border border-slate-800">
-        <div class="text-xs text-slate-400 mono">TOP SECTOR</div>
-        <div class="text-2xl font-bold text-cyan-400 mt-1 mono">Semis / AI</div>
-        <div class="text-xs text-slate-400 mt-1">High Institutional Flow</div>
-      </div>
-      <div class="glass-card rounded-xl p-4 border border-slate-800">
-        <div class="text-xs text-slate-400 mono">MARKET REGIME</div>
-        <div class="text-2xl font-bold text-emerald-400 mt-1 mono">Risk-On</div>
-        <div class="text-xs text-slate-400 mt-1">Above 50-Day SMA</div>
-      </div>
     </div>
 
-    <!-- SCREENER SECTION -->
-    <section id="screener" class="glass-card rounded-2xl p-6 border border-slate-800">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-6 border-b border-dark-800 gap-4">
+    <!-- MODULE 1: INTERACTIVE WEB AUDIO TONE GENERATOR & OSCILLOSCOPE -->
+    <section id="generator" class="glass-panel rounded-2xl p-6 sm:p-8 border border-studio-800 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b border-studio-800 gap-3">
         <div>
           <h2 class="text-xl font-bold text-white flex items-center gap-2">
-            <i class="fa-solid fa-filter text-cyan-400"></i> Stock Screener Candidates
+            <i class="fa-solid fa-sliders text-violet-400"></i> Audio Tone Generator & Real-Time Oscilloscope
           </h2>
-          <p class="text-xs text-slate-400 mt-1">Select a row to inspect its live chart and key levels</p>
+          <p class="text-xs text-slate-400 mt-1">High-precision Web Audio oscillator with real-time waveform & spectrum visualizer</p>
         </div>
-
-        <!-- FILTERS -->
-        <div class="flex flex-wrap items-center gap-2">
-          <button onclick="filterTable('all')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-cyan-500 text-dark-900 mono transition" data-filter="all">All (6)</button>
-          <button onclick="filterTable('Breakout')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-dark-800 hover:bg-dark-700 text-slate-300 mono transition" data-filter="Breakout">Breakouts</button>
-          <button onclick="filterTable('Pullback')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-dark-800 hover:bg-dark-700 text-slate-300 mono transition" data-filter="Pullback">Pullbacks</button>
-          <button onclick="filterTable('Momentum')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-dark-800 hover:bg-dark-700 text-slate-300 mono transition" data-filter="Momentum">Momentum</button>
+        <div class="text-xs text-amber-400 flex items-center gap-1.5 mono bg-amber-500/10 px-3 py-1.5 rounded-lg border border-amber-500/20">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>Hearing Safety: Set headphone volume low</span>
         </div>
       </div>
 
-      <!-- TABLE -->
-      <div class="overflow-x-auto mt-4">
-        <table class="w-full text-left border-collapse text-xs sm:text-sm">
-          <thead>
-            <tr class="text-slate-400 border-b border-dark-800 mono text-xs">
-              <th class="py-3 px-3">TICKER</th>
-              <th class="py-3 px-3">SECTOR</th>
-              <th class="py-3 px-3">CATALYST / SETUP</th>
-              <th class="py-3 px-3">ENTRY</th>
-              <th class="py-3 px-3">TARGET</th>
-              <th class="py-3 px-3">STOP</th>
-              <th class="py-3 px-3">R:R</th>
-              <th class="py-3 px-3">STATUS</th>
-              <th class="py-3 px-3 text-right">ACTION</th>
-            </tr>
-          </thead>
-          <tbody id="screenerTableBody" class="divide-y divide-dark-800/60 font-medium">
-            <!-- Rendered dynamically by app.js -->
-          </tbody>
-        </table>
+      <!-- MAIN CONTROLS GRID -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        
+        <!-- LEFT: SLIDERS & CONTROLS (7 COLS) -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- CURRENT FREQUENCY READOUT -->
+          <div class="flex items-baseline justify-between bg-studio-900 p-4 rounded-xl border border-studio-800">
+            <div>
+              <div class="text-[11px] text-slate-400 mono">CURRENT FREQUENCY</div>
+              <div class="text-3xl sm:text-4xl font-extrabold text-white mono flex items-baseline gap-2">
+                <span id="freqDisplay">440.0</span>
+                <span class="text-sm font-semibold text-violet-400">Hz</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-[11px] text-slate-400 mono">ACOUSTIC WAVELENGTH (λ)</div>
+              <div class="text-lg font-bold text-cyan-400 mono" id="wavelengthDisplay">77.9 cm</div>
+              <div class="text-[10px] text-slate-500">at 20°C in air (c = 343 m/s)</div>
+            </div>
+          </div>
+
+          <!-- LOGARITHMIC FREQUENCY SLIDER -->
+          <div class="space-y-2">
+            <div class="flex justify-between text-xs text-slate-400 mono">
+              <span>20 Hz (Sub)</span>
+              <span>100 Hz</span>
+              <span>1 kHz</span>
+              <span>10 kHz</span>
+              <span>20 kHz (Air)</span>
+            </div>
+            <input type="range" id="freqSlider" min="0" max="1000" value="446" class="w-full h-2 bg-studio-800 rounded-lg cursor-pointer">
+            <div class="flex items-center justify-between pt-1">
+              <div class="flex gap-1 text-xs mono">
+                <button onclick="adjustFrequency(-10)" class="px-2 py-0.5 rounded bg-studio-800 hover:bg-studio-700 text-slate-300 border border-studio-700">-10 Hz</button>
+                <button onclick="adjustFrequency(-1)" class="px-2 py-0.5 rounded bg-studio-800 hover:bg-studio-700 text-slate-300 border border-studio-700">-1 Hz</button>
+                <button onclick="adjustFrequency(1)" class="px-2 py-0.5 rounded bg-studio-800 hover:bg-studio-700 text-slate-300 border border-studio-700">+1 Hz</button>
+                <button onclick="adjustFrequency(10)" class="px-2 py-0.5 rounded bg-studio-800 hover:bg-studio-700 text-slate-300 border border-studio-700">+10 Hz</button>
+              </div>
+              <div class="flex gap-1 text-xs mono">
+                <button onclick="setOctave(0.5)" class="px-2 py-0.5 rounded bg-studio-800 hover:bg-studio-700 text-slate-300 border border-studio-700">÷2 (Octave Down)</button>
+                <button onclick="setOctave(2.0)" class="px-2 py-0.5 rounded bg-studio-800 hover:bg-studio-700 text-slate-300 border border-studio-700">×2 (Octave Up)</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- WAVEFORM SELECTOR & VOLUME -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <!-- WAVEFORMS -->
+            <div class="space-y-1.5">
+              <label class="text-xs text-slate-400 mono">WAVEFORM</label>
+              <div class="grid grid-cols-4 gap-1.5">
+                <button onclick="setWaveform('sine')" class="wave-btn px-2 py-2 rounded-lg text-xs font-semibold bg-violet-600 text-white mono transition" data-wave="sine">Sine</button>
+                <button onclick="setWaveform('triangle')" class="wave-btn px-2 py-2 rounded-lg text-xs font-medium bg-studio-850 hover:bg-studio-800 text-slate-300 mono transition" data-wave="triangle">Tri</button>
+                <button onclick="setWaveform('sawtooth')" class="wave-btn px-2 py-2 rounded-lg text-xs font-medium bg-studio-850 hover:bg-studio-800 text-slate-300 mono transition" data-wave="sawtooth">Saw</button>
+                <button onclick="setWaveform('square')" class="wave-btn px-2 py-2 rounded-lg text-xs font-medium bg-studio-850 hover:bg-studio-800 text-slate-300 mono transition" data-wave="square">Square</button>
+              </div>
+            </div>
+
+            <!-- VOLUME / GAIN -->
+            <div class="space-y-1.5">
+              <div class="flex justify-between text-xs text-slate-400 mono">
+                <label>MASTER GAIN</label>
+                <span id="volPercent">25%</span>
+              </div>
+              <input type="range" id="volumeSlider" min="0" max="100" value="25" class="w-full h-2 bg-studio-800 rounded-lg cursor-pointer">
+              <div class="flex justify-between text-[10px] text-slate-500 mono">
+                <span>0 dB (Mute)</span>
+                <span>Soft Limiter Active</span>
+                <span>Max Safe</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- PRIMARY ACTION BUTTONS -->
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <button id="playBtn" onclick="togglePlayTone()" class="flex-1 py-3 px-6 rounded-xl bg-violet-600 hover:bg-violet-500 font-bold text-white mono shadow-lg shadow-violet-600/30 transition flex items-center justify-center gap-2 text-sm">
+              <i class="fa-solid fa-play" id="playIcon"></i>
+              <span id="playBtnText">START TONE (440 Hz)</span>
+            </button>
+            <button onclick="startFrequencySweep()" class="py-3 px-4 rounded-xl bg-studio-850 hover:bg-studio-800 text-cyan-300 border border-cyan-500/30 mono font-semibold text-xs transition flex items-center gap-1.5">
+              <i class="fa-solid fa-forward-step"></i>
+              <span>Log Sweep (20s)</span>
+            </button>
+            <button onclick="stopAllAudio()" class="py-3 px-4 rounded-xl bg-studio-850 hover:bg-rose-950/40 text-slate-400 hover:text-rose-400 border border-studio-700 mono font-semibold text-xs transition">
+              <i class="fa-solid fa-stop mr-1"></i> Mute
+            </button>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: LIVE CANVAS OSCILLOSCOPE & SPECTRUM (5 COLS) -->
+        <div class="lg:col-span-5 space-y-3">
+          <div class="flex items-center justify-between text-xs mono text-slate-400">
+            <span class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-violet-400 animate-ping"></span>
+              Real-Time Oscilloscope
+            </span>
+            <div class="flex gap-2">
+              <button onclick="setVisualizerMode('waveform')" class="vis-mode-btn text-[11px] text-violet-400 font-bold" data-mode="waveform">Wave</button>
+              <button onclick="setVisualizerMode('frequency')" class="vis-mode-btn text-[11px] text-slate-500 hover:text-slate-300" data-mode="frequency">Spectrum</button>
+            </div>
+          </div>
+
+          <div class="w-full h-64 bg-studio-950 rounded-xl overflow-hidden border border-studio-800 relative">
+            <canvas id="visualizerCanvas" class="w-full h-full block"></canvas>
+            <div id="visIdleNotice" class="absolute inset-0 flex flex-col items-center justify-center text-slate-500 text-xs mono pointer-events-none space-y-1">
+              <i class="fa-solid fa-wave-square text-2xl text-slate-600"></i>
+              <span>Engine Inactive • Press Start Tone</span>
+            </div>
+          </div>
+
+          <div class="text-[11px] text-slate-400 mono flex justify-between px-1">
+            <span>Fast Fourier Transform (FFT 2048)</span>
+            <span>60 FPS Hardware Render</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- LIVE TRADINGVIEW CHART SECTION -->
-    <section id="chart-section" class="glass-card rounded-2xl p-6 border border-slate-800">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b border-dark-800 gap-2 mb-4">
+    <!-- MODULE 2: INTERACTIVE 20 Hz – 20 kHz AUDIO FREQUENCY SPECTRUM EXPLORER -->
+    <section id="spectrum" class="glass-panel rounded-2xl p-6 sm:p-8 border border-studio-800 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b border-studio-800 gap-2">
         <div>
-          <div class="flex items-center space-x-2">
-            <h2 class="text-xl font-bold text-white flex items-center gap-2">
-              <i class="fa-solid fa-chart-candlestick text-emerald-400"></i> Interactive Chart
-            </h2>
-            <span id="activeChartTickerBadge" class="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 mono text-xs font-bold">
-              NASDAQ:NVDA
-            </span>
-          </div>
-          <p class="text-xs text-slate-400 mt-1">Multi-timeframe real-time execution chart powered by TradingView</p>
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-layer-group text-cyan-400"></i> 20 Hz – 20,000 Hz Frequency Spectrum Anatomy
+          </h2>
+          <p class="text-xs text-slate-400 mt-1">Select an acoustic frequency band to audit its sound, wavelength, and mixing rules</p>
         </div>
-        <div class="text-xs text-slate-400 mono">
-          Click any stock in the table to load its chart instantly
-        </div>
+        <div class="text-xs text-slate-400 mono">Click any band to inspect</div>
       </div>
 
-      <!-- TRADINGVIEW WIDGET CONTAINER -->
-      <div class="w-full h-[550px] rounded-xl overflow-hidden bg-black/60 border border-slate-800" id="tv_chart_container">
+      <!-- SPECTRUM BANDS CONTAINER (COLOR-CODED) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2" id="spectrumBandsNav">
         <!-- Injected dynamically by app.js -->
       </div>
+
+      <!-- DETAILED BAND INSPECTOR CARD -->
+      <div class="bg-studio-900 rounded-xl p-6 border border-studio-800 space-y-4" id="bandDetailCard">
+        <!-- Rendered dynamically by app.js based on active band -->
+      </div>
     </section>
 
-    <!-- MARKET RESEARCH & THEMES SECTION -->
-    <section id="findings" class="space-y-4">
+    <!-- MODULE 3: STUDIO ROOM MODES & STANDING WAVE CALCULATOR -->
+    <section id="room-modes" class="glass-panel rounded-2xl p-6 sm:p-8 border border-studio-800 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 border-b border-studio-800 gap-3">
+        <div>
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-cube text-violet-400"></i> Room Modes & Standing Waves Calculator
+          </h2>
+          <p class="text-xs text-slate-400 mt-1">Calculates axial resonant frequencies that cause bass buildup and acoustic cancellations</p>
+        </div>
+        <div class="flex items-center space-x-2 bg-studio-850 p-1 rounded-lg border border-studio-700 text-xs mono">
+          <button onclick="setRoomUnit('meters')" id="btnMeters" class="px-3 py-1 rounded bg-violet-600 text-white font-semibold transition">Meters (m)</button>
+          <button onclick="setRoomUnit('feet')" id="btnFeet" class="px-3 py-1 rounded text-slate-400 hover:text-white transition">Feet (ft)</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- INPUTS (4 COLS) -->
+        <div class="lg:col-span-4 space-y-4 bg-studio-900/60 p-5 rounded-xl border border-studio-800">
+          <div class="text-xs font-bold text-slate-300 mono uppercase">Room Dimensions</div>
+          
+          <div class="space-y-3 text-xs mono">
+            <div>
+              <div class="flex justify-between text-slate-400 mb-1">
+                <label>LENGTH (L)</label>
+                <span id="lengthVal">5.0 m</span>
+              </div>
+              <input type="range" id="inputLength" min="2" max="15" step="0.1" value="5.0" oninput="calculateRoomModes()" class="w-full h-1.5 bg-studio-800 rounded cursor-pointer">
+            </div>
+
+            <div>
+              <div class="flex justify-between text-slate-400 mb-1">
+                <label>WIDTH (W)</label>
+                <span id="widthVal">3.8 m</span>
+              </div>
+              <input type="range" id="inputWidth" min="2" max="12" step="0.1" value="3.8" oninput="calculateRoomModes()" class="w-full h-1.5 bg-studio-800 rounded cursor-pointer">
+            </div>
+
+            <div>
+              <div class="flex justify-between text-slate-400 mb-1">
+                <label>HEIGHT (H)</label>
+                <span id="heightVal">2.6 m</span>
+              </div>
+              <input type="range" id="inputHeight" min="2" max="6" step="0.1" value="2.6" oninput="calculateRoomModes()" class="w-full h-1.5 bg-studio-800 rounded cursor-pointer">
+            </div>
+          </div>
+
+          <!-- ROOM STATS TILES -->
+          <div class="pt-2 border-t border-studio-800 grid grid-cols-2 gap-2 text-xs mono">
+            <div class="bg-studio-850 p-2.5 rounded-lg border border-studio-800">
+              <div class="text-[10px] text-slate-400">ROOM VOLUME</div>
+              <div class="text-sm font-bold text-white mt-0.5" id="roomVolumeDisplay">49.4 m³</div>
+            </div>
+            <div class="bg-studio-850 p-2.5 rounded-lg border border-studio-800">
+              <div class="text-[10px] text-slate-400">SURFACE AREA</div>
+              <div class="text-sm font-bold text-white mt-0.5" id="roomSurfaceDisplay">83.8 m²</div>
+            </div>
+          </div>
+
+          <!-- SCHROEDER FREQUENCY -->
+          <div class="bg-studio-850 p-3 rounded-lg border border-studio-800 text-xs mono space-y-1">
+            <div class="flex justify-between">
+              <span class="text-slate-400">Schroeder Transition:</span>
+              <span class="text-cyan-400 font-bold" id="schroederDisplay">~180 Hz</span>
+            </div>
+            <p class="text-[10px] text-slate-400 leading-normal">
+              Below this frequency, discrete standing waves dictate room response. Above it, sound behaves as diffuse statistical waves.
+            </p>
+          </div>
+        </div>
+
+        <!-- RESULTS: AXIAL MODES TABLE (8 COLS) -->
+        <div class="lg:col-span-8 space-y-4">
+          <div class="flex items-center justify-between text-xs mono">
+            <span class="font-bold text-slate-300">LOWEST AXIAL MODES (&lt; 300 Hz)</span>
+            <span class="text-slate-400">Click a resonant frequency to test</span>
+          </div>
+
+          <div class="overflow-x-auto rounded-xl border border-studio-800 bg-studio-900">
+            <table class="w-full text-left text-xs mono">
+              <thead>
+                <tr class="text-slate-400 border-b border-studio-800 bg-studio-950/60">
+                  <th class="py-2.5 px-3">FREQUENCY</th>
+                  <th class="py-2.5 px-3">DIMENSION</th>
+                  <th class="py-2.5 px-3">HARMONIC</th>
+                  <th class="py-2.5 px-3">WAVELENGTH</th>
+                  <th class="py-2.5 px-3">ACOUSTIC EFFECT</th>
+                  <th class="py-2.5 px-3 text-right">AUDIT</th>
+                </tr>
+              </thead>
+              <tbody id="modesTableBody" class="divide-y divide-studio-800">
+                <!-- Injected dynamically by app.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="p-3 bg-studio-900 rounded-lg border border-studio-800 text-xs text-slate-300 flex items-start gap-2">
+            <i class="fa-solid fa-circle-info text-cyan-400 mt-0.5"></i>
+            <div>
+              <strong>Acoustic Insight:</strong> If two dimensions produce mode frequencies within 5 Hz of each other, severe acoustic "booming" will occur. High-density bass traps in corner junctions absorb these boundary pressure peaks.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MODULE 4: ACOUSTIC TREATMENT & ABSORPTION MATERIAL REFERENCE -->
+    <section id="treatment" class="glass-panel rounded-2xl p-6 sm:p-8 border border-studio-800 space-y-6">
       <div>
         <h2 class="text-xl font-bold text-white flex items-center gap-2">
-          <i class="fa-solid fa-book-bookmark text-cyan-400"></i> Research Briefs & Sector Notes
+          <i class="fa-solid fa-shield-halved text-cyan-400"></i> Acoustic Treatment & Material Absorption Coefficients
         </h2>
-        <p class="text-xs text-slate-400 mt-1">Fundamental theses, liquidity analysis, and market structure insights</p>
+        <p class="text-xs text-slate-400 mt-1">Noise Reduction Coefficients (NRC) across critical frequency octave bands</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         <!-- CARD 1 -->
-        <div class="glass-card rounded-xl p-5 border border-slate-800 hover:border-cyan-500/40 transition space-y-3">
-          <div class="flex items-center justify-between text-xs mono text-cyan-400">
-            <span>SECTOR FOCUS</span>
-            <span>MACRO</span>
+        <div class="bg-studio-900 rounded-xl p-5 border border-studio-800 space-y-3">
+          <div class="flex justify-between text-xs mono text-violet-400">
+            <span>VELOCITY ABSORBER</span>
+            <span>POROUS</span>
           </div>
-          <h3 class="text-base font-bold text-white">Semiconductor Hardware & Co-Packaged Optics</h3>
+          <h3 class="text-base font-bold text-white">4" Rigid Mineral Wool (Rockwool Safe'n'Sound)</h3>
           <p class="text-xs text-slate-300 leading-relaxed">
-            Leading cluster breadth remains strong across datacenter infrastructure. Tier-1 hyperscaler capex projections for 2026 continue to expand. Look for volume accumulation on 20-day EMA tests.
+            Optimal for broad-spectrum absorption and first reflection points. An air gap equal to panel depth doubles bass absorption efficiency down to 100 Hz.
           </p>
-          <div class="pt-2 border-t border-dark-800 flex items-center justify-between text-xs">
-            <span class="text-slate-400 mono">Tickers: NVDA, AVGO, TSM</span>
-            <span class="text-emerald-400 font-semibold mono">ACCUMULATION</span>
+          <div class="pt-2 border-t border-studio-800 flex justify-between text-xs mono">
+            <span class="text-slate-400">NRC Rating: 1.05</span>
+            <span class="text-emerald-400 font-bold">Best All-Round</span>
           </div>
         </div>
 
         <!-- CARD 2 -->
-        <div class="glass-card rounded-xl p-5 border border-slate-800 hover:border-cyan-500/40 transition space-y-3">
-          <div class="flex items-center justify-between text-xs mono text-cyan-400">
-            <span>SQUEEZE CANDIDATES</span>
-            <span>MOMENTUM</span>
+        <div class="bg-studio-900 rounded-xl p-5 border border-studio-800 space-y-3">
+          <div class="flex justify-between text-xs mono text-cyan-400">
+            <span>PRESSURE ABSORBER</span>
+            <span>CORNER BASS TRAPS</span>
           </div>
-          <h3 class="text-base font-bold text-white">High Short-Interest Breakouts with Volume</h3>
+          <h3 class="text-base font-bold text-white">Straddling Corner Bass Traps (Superchunks)</h3>
           <p class="text-xs text-slate-300 leading-relaxed">
-            Monitoring names with >15% float shorted breaking multi-month bases with 2.5x average daily volume. Strict stop placement required below pivot low.
+            All room modes converge into maximum sound pressure at trihedral corners (where two walls meet the ceiling or floor). Deep corner absorption controls sub-100Hz decay times.
           </p>
-          <div class="pt-2 border-t border-dark-800 flex items-center justify-between text-xs">
-            <span class="text-slate-400 mono">Tickers: PLTR, APP, HOOD</span>
-            <span class="text-cyan-400 font-semibold mono">EXPANSION</span>
+          <div class="pt-2 border-t border-studio-800 flex justify-between text-xs mono">
+            <span class="text-slate-400">Targets: 40 - 150 Hz</span>
+            <span class="text-cyan-400 font-bold">Essential for Bass</span>
           </div>
         </div>
 
         <!-- CARD 3 -->
-        <div class="glass-card rounded-xl p-5 border border-slate-800 hover:border-cyan-500/40 transition space-y-3">
-          <div class="flex items-center justify-between text-xs mono text-cyan-400">
-            <span>DEFENSIVE & COMMODITIES</span>
-            <span>ROTATION</span>
+        <div class="bg-studio-900 rounded-xl p-5 border border-studio-800 space-y-3">
+          <div class="flex justify-between text-xs mono text-amber-400">
+            <span>SCATTERING & DIFFUSION</span>
+            <span>QRD / SCHROEDER</span>
           </div>
-          <h3 class="text-base font-bold text-white">Precious Metals & Energy Transition Metals</h3>
+          <h3 class="text-base font-bold text-white">Quadratic Residue Diffusers (QRD)</h3>
           <p class="text-xs text-slate-300 leading-relaxed">
-            Gold and copper maintaining structural uptrend against softening dollar index. Royalties and tier-1 miners showing consistent free cash flow generation.
+            Instead of removing sound energy, diffusers scatter reflections evenly in time and space, preserving room liveliness while eliminating flutter echoes and comb filtering.
           </p>
-          <div class="pt-2 border-t border-dark-800 flex items-center justify-between text-xs">
-            <span class="text-slate-400 mono">Tickers: FCX, NEM, GDX</span>
-            <span class="text-amber-400 font-semibold mono">TRENDING</span>
+          <div class="pt-2 border-t border-studio-800 flex justify-between text-xs mono">
+            <span class="text-slate-400">Placement: Rear Wall</span>
+            <span class="text-amber-400 font-bold">Preserves Ambience</span>
           </div>
         </div>
 
@@ -284,22 +460,22 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="border-t border-dark-800 bg-dark-850/90 py-8 mt-12 text-xs text-slate-400">
+  <footer class="border-t border-studio-800 bg-studio-900/90 py-8 mt-12 text-xs text-slate-400">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center space-x-2">
-        <span class="font-bold text-white mono">SPECTRUMS RESEARCH</span>
+        <span class="font-extrabold text-white mono">SPECTRUMS ACOUSTICS</span>
         <span>•</span>
-        <span>Quantitative Screeners</span>
+        <span>Acoustic Physics & Frequency Science</span>
         <span>•</span>
-        <span>Market Structure & Setups</span>
+        <span>Audio Engineering Suite</span>
       </div>
 
       <div class="flex items-center space-x-4 mono">
-        <span class="flex items-center gap-1 text-slate-400">
-          <i class="fa-solid fa-bolt text-emerald-400"></i> Cloudflare Edge Network
+        <span class="flex items-center gap-1 text-violet-400">
+          <i class="fa-solid fa-wave-square"></i> Web Audio API 2.0
         </span>
         <span>•</span>
-        <span>Real-Time Financial Feeds</span>
+        <span class="text-cyan-400">Zero Server Latency</span>
       </div>
     </div>
   </footer>
